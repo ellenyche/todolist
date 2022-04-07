@@ -31,7 +31,11 @@ function ToDoItem(props) {
           {props.text}
         </span>
         <IconButton className="deleteButton" size="small">
-          <HighlightOffIcon />
+          <HighlightOffIcon
+            onClick={() => {
+              props.onClicked(props.id);
+            }}
+          />
         </IconButton>
       </li>
     </div>

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import ToDoItem from "./ToDoItem";
+import DeleteIcon from "@mui/icons-material/Delete";
+import Button from "@mui/material/Button";
 
 function App() {
   const [inputText, setInputText] = useState("");
@@ -17,7 +19,13 @@ function App() {
     setInputText("");
   }
 
-  function deleteItem() {}
+  function deleteItem(id) {
+    setItems((prevItems) => {
+      return prevItems.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
 
   return (
     <div className="container">
@@ -32,10 +40,20 @@ function App() {
       </div>
       <div>
         <ul>
-          {items.map((todoItem) => (
-            <ToDoItem text={todoItem} onChecked={deleteItem} />
+          {items.map((todoItem, index) => (
+            <ToDoItem
+              key={index}
+              id={index}
+              text={todoItem}
+              onClicked={deleteItem}
+            />
           ))}
         </ul>
+      </div>
+      <div>
+        <Button variant="contained" startIcon={<DeleteIcon />}>
+          Delete All
+        </Button>
       </div>
     </div>
   );
