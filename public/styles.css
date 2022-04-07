@@ -20,6 +20,8 @@ ul {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: auto;
   min-height: 500px;
@@ -39,7 +41,7 @@ ul {
   justify-content: center;
   margin-bottom: 1rem;
 }
-.heading h1 {
+.heading span {
   transform: rotate(2deg);
   padding: 0.2rem 1.2rem;
   border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
@@ -70,7 +72,7 @@ ul {
   color: hsl(198, 1%, 29%);
 }
 
-button {
+.form button {
   padding: 0;
   border: none;
   font-family: "Architects Daughter", cursive;
@@ -79,7 +81,13 @@ button {
   border-radius: 5px;
   background-color: #ffeaa7;
 }
-button span {
+
+.deleteButton {
+  border: none;
+  background-color: transparent;
+}
+
+.addButton {
   background: #f1f5f8;
   display: block;
   padding: 0.5rem 1rem;

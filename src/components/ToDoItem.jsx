@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import IconButton from "@mui/material/IconButton";
 
 function ToDoItem(props) {
   const isDoneStyle = {
@@ -7,10 +9,7 @@ function ToDoItem(props) {
     color: "#808080"
   };
 
-var inputText = {props.text};
-
   const [isDone, setIsDone] = useState(false);
-  const [valueInput, setNewInput] = useState({inputText});
 
   function checkedBox() {
     setIsDone((prevValue) => {
@@ -18,21 +17,22 @@ var inputText = {props.text};
     });
   }
 
-  function updateItem() {
-
-  }
-
   return (
     <div>
       <li>
         <Checkbox color="default" onChange={checkedBox} />
-        <input
-        onChange={updateItem}
+        <span
+          contentEditable="true"
           type="text"
-          value={valueInput}
+          size="15"
           className="todoInput"
           style={isDone ? isDoneStyle : null}
-        />
+        >
+          {props.text}
+        </span>
+        <IconButton className="deleteButton" size="small">
+          <HighlightOffIcon />
+        </IconButton>
       </li>
     </div>
   );

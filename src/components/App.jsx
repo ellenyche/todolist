@@ -17,21 +17,23 @@ function App() {
     setInputText("");
   }
 
+  function deleteItem() {}
+
   return (
     <div className="container">
       <div className="heading">
-        <h1>To-Do List</h1>
+        <span contentEditable="true">To-Do List</span>
       </div>
       <div className="form">
         <input onChange={handleChange} type="text" value={inputText} />
         <button onClick={addItem}>
-          <span>Add</span>
+          <span className="addButton">Add</span>
         </button>
       </div>
       <div>
         <ul>
           {items.map((todoItem) => (
-            <ToDoItem text={todoItem} />
+            <ToDoItem text={todoItem} onChecked={deleteItem} />
           ))}
         </ul>
       </div>
