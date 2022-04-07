@@ -52,6 +52,7 @@ function App() {
       </div>
       <div>
         <Button
+          color="secondary"
           onClick={() => setItems([])}
           variant="contained"
           startIcon={<DeleteIcon />}
