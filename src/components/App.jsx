@@ -51,7 +51,11 @@ function App() {
         </ul>
       </div>
       <div>
-        <Button variant="contained" startIcon={<DeleteIcon />}>
+        <Button
+          onClick={() => setItems([])}
+          variant="contained"
+          startIcon={<DeleteIcon />}
+        >
           Delete All
         </Button>
       </div>
